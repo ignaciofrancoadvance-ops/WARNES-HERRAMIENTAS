@@ -21,6 +21,24 @@ if (navToggle && nav) {
   });
 }
 
+// Formulario de contacto -> abre WhatsApp con la consulta lista
+const WHATSAPP_NUMBER = '5491132003900';
+const contactForm = document.getElementById('contactForm');
+if (contactForm) {
+  contactForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const nombre = (document.getElementById('nombre').value || '').trim();
+    const contacto = (document.getElementById('email').value || '').trim();
+    const mensaje = (document.getElementById('mensaje').value || '').trim();
+    const texto =
+      `Hola Warnes Herramientas, soy ${nombre || '(sin nombre)'}.` +
+      (mensaje ? `\nConsulta: ${mensaje}` : '\nQuería hacer una consulta.') +
+      (contacto ? `\nMe pueden contactar en: ${contacto}` : '');
+    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(texto)}`;
+    window.open(url, '_blank', 'noopener');
+  });
+}
+
 // Año actual en el footer
 const yearEl = document.getElementById('year');
 if (yearEl) yearEl.textContent = new Date().getFullYear();
