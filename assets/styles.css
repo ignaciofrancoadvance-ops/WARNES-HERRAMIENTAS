@@ -166,9 +166,14 @@ h1, h2, h3 { font-family: var(--font-head); line-height: 1.1; letter-spacing: -0
 .marquee:hover .marquee-track { animation-play-state: paused; }
 @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 .brand-chip {
+  display: inline-flex; align-items: center; justify-content: center;
   font-family: var(--font-head); font-style: italic; font-weight: 800;
   font-size: 1.7rem; color: #9aa0aa; white-space: nowrap;
-  opacity: .7; transition: color .2s, opacity .2s;
+  opacity: .75; transition: color .2s, opacity .2s, filter .2s;
+}
+.brand-chip img {
+  height: 60px; width: auto; max-width: 180px; object-fit: contain;
+  border-radius: 10px;
 }
 .brand-chip:hover { color: var(--red); opacity: 1; }
 @media (prefers-reduced-motion: reduce) { .marquee-track { animation: none; } }

@@ -18,7 +18,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Saira:ital,wght@0,500;0,600;0,700;0,800;0,900;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet" />
 
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
-  <link rel="stylesheet" href="assets/styles.css?v=4" />
+  <link rel="stylesheet" href="assets/styles.css?v=5" />
 </head>
 <body>
 
@@ -151,31 +151,27 @@
       </div>
     </div>
 
-    <!-- Carrusel infinito. Reemplazar los nombres por las marcas reales (o por logos en imagen). -->
+    <!-- Carrusel infinito de marcas. Cada logo busca su imagen en assets/brands/.
+         Si la imagen no existe todavia, muestra el nombre como respaldo. -->
     <div class="marquee" aria-label="Marcas con las que trabajamos">
       <div class="marquee-track">
-        <!-- Grupo de marcas (se repite para el loop sin cortes) -->
-        <span class="brand-chip">Bahco</span>
-        <span class="brand-chip">Stanley</span>
-        <span class="brand-chip">Bosch</span>
-        <span class="brand-chip">Makita</span>
-        <span class="brand-chip">DeWalt</span>
-        <span class="brand-chip">Black+Decker</span>
-        <span class="brand-chip">Crossmaster</span>
-        <span class="brand-chip">Gladiator</span>
-        <span class="brand-chip">Lusqtoff</span>
-        <span class="brand-chip">Truper</span>
-        <!-- copia idéntica para el bucle continuo -->
-        <span class="brand-chip" aria-hidden="true">Bahco</span>
-        <span class="brand-chip" aria-hidden="true">Stanley</span>
-        <span class="brand-chip" aria-hidden="true">Bosch</span>
-        <span class="brand-chip" aria-hidden="true">Makita</span>
-        <span class="brand-chip" aria-hidden="true">DeWalt</span>
-        <span class="brand-chip" aria-hidden="true">Black+Decker</span>
-        <span class="brand-chip" aria-hidden="true">Crossmaster</span>
-        <span class="brand-chip" aria-hidden="true">Gladiator</span>
-        <span class="brand-chip" aria-hidden="true">Lusqtoff</span>
-        <span class="brand-chip" aria-hidden="true">Truper</span>
+        <span class="brand-chip"><img src="assets/brands/dewalt.png" alt="DeWalt" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"><b style="display:none">DeWalt</b></span>
+        <span class="brand-chip"><img src="assets/brands/lusqtoff.png" alt="Lusqtoff" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"><b style="display:none">Lusqtoff</b></span>
+        <span class="brand-chip"><img src="assets/brands/ingco.png" alt="INGCO" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"><b style="display:none">INGCO</b></span>
+        <span class="brand-chip"><img src="assets/brands/crossmaster.png" alt="Crossmaster" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"><b style="display:none">Crossmaster</b></span>
+        <span class="brand-chip"><img src="assets/brands/bremen.png" alt="Bremen" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"><b style="display:none">Bremen</b></span>
+        <span class="brand-chip"><img src="assets/brands/eurotech.png" alt="Eurotech" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"><b style="display:none">Eurotech</b></span>
+        <span class="brand-chip"><img src="assets/brands/bahco.png" alt="Bahco" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"><b style="display:none">Bahco</b></span>
+        <span class="brand-chip"><img src="assets/brands/truper.png" alt="Truper" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"><b style="display:none">Truper</b></span>
+        <!-- copia identica para el bucle continuo -->
+        <span class="brand-chip" aria-hidden="true"><img src="assets/brands/dewalt.png" alt="" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"><b style="display:none">DeWalt</b></span>
+        <span class="brand-chip" aria-hidden="true"><img src="assets/brands/lusqtoff.png" alt="" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"><b style="display:none">Lusqtoff</b></span>
+        <span class="brand-chip" aria-hidden="true"><img src="assets/brands/ingco.png" alt="" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"><b style="display:none">INGCO</b></span>
+        <span class="brand-chip" aria-hidden="true"><img src="assets/brands/crossmaster.png" alt="" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"><b style="display:none">Crossmaster</b></span>
+        <span class="brand-chip" aria-hidden="true"><img src="assets/brands/bremen.png" alt="" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"><b style="display:none">Bremen</b></span>
+        <span class="brand-chip" aria-hidden="true"><img src="assets/brands/eurotech.png" alt="" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"><b style="display:none">Eurotech</b></span>
+        <span class="brand-chip" aria-hidden="true"><img src="assets/brands/bahco.png" alt="" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"><b style="display:none">Bahco</b></span>
+        <span class="brand-chip" aria-hidden="true"><img src="assets/brands/truper.png" alt="" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"><b style="display:none">Truper</b></span>
       </div>
     </div>
   </section>
