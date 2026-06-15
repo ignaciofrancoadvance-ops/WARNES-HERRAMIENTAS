@@ -222,13 +222,14 @@ h1, h2, h3 { font-family: var(--font-head); line-height: 1.1; letter-spacing: -0
 .badge-years {
   position: relative;
   width: 230px; height: 230px; border-radius: 50%;
-  display: grid; place-items: center; text-align: center;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 4px; text-align: center;
   background: radial-gradient(circle at 30% 25%, #2a2d33, var(--ink-800));
   border: 2px solid var(--red);
   box-shadow: 0 0 0 10px rgba(226,43,34,.08);
 }
-.badge-years .big { font-family: var(--font-head); font-style: italic; font-weight: 900; font-size: 4.6rem; color: var(--red); line-height: 1; }
-.badge-years .small { font-size: .9rem; color: #c2c7cf; letter-spacing: .04em; margin-top: 6px; }
+.badge-years .big { font-family: var(--font-head); font-style: italic; font-weight: 900; font-size: 4.4rem; color: var(--red); line-height: 1; }
+.badge-years .small { font-size: .9rem; color: #c2c7cf; letter-spacing: .04em; }
 
 /* ---------- Features ---------- */
 .features { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
