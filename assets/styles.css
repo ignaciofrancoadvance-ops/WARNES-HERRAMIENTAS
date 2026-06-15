@@ -121,8 +121,10 @@ h1, h2, h3 { font-family: var(--font-head); line-height: 1.1; letter-spacing: -0
   background-size: 46px 46px;
   mask-image: radial-gradient(70% 70% at 70% 20%, #000 30%, transparent 80%);
 }
-.hero-inner { position: relative; padding-bottom: 90px; }
-.hero-content { max-width: 720px; }
+.hero-inner { position: relative; padding-bottom: 80px; }
+.hero-top { display: flex; align-items: flex-end; justify-content: space-between; gap: 56px; padding-bottom: 48px; }
+.hero-content { flex: 1 1 auto; max-width: 680px; }
+.hero-cta { flex: 0 0 320px; max-width: 340px; }
 .eyebrow {
   display: inline-flex; align-items: center; gap: 9px;
   font-family: var(--font-head); font-weight: 600; font-size: .82rem;
@@ -132,11 +134,12 @@ h1, h2, h3 { font-family: var(--font-head); line-height: 1.1; letter-spacing: -0
   padding: 7px 14px; border-radius: 100px;
 }
 .eyebrow .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--red); box-shadow: 0 0 0 4px rgba(226,43,34,.25); }
-.hero h1 { font-size: clamp(2.3rem, 5.4vw, 4rem); font-weight: 700; margin: 22px 0 18px; }
+.hero h1 { font-size: clamp(2.6rem, 6.4vw, 4.6rem); font-weight: 700; margin: 22px 0 0; }
 .hero h1 .hl { color: var(--red); }
-.hero-lead { font-size: clamp(1.05rem, 2vw, 1.25rem); color: #c8ccd3; max-width: 600px; }
+.hero-lead { font-size: 1.05rem; color: #c8ccd3; margin-bottom: 20px; }
 .hero-lead strong { color: #fff; }
-.hero-actions { display: flex; flex-wrap: wrap; gap: 14px; margin: 32px 0 44px; }
+.hero-actions { display: flex; flex-direction: column; gap: 12px; }
+.hero-actions .btn { width: 100%; }
 .hero-stats { list-style: none; display: flex; flex-wrap: wrap; gap: 40px; }
 .hero-stats li { display: flex; flex-direction: column; }
 .hero-stats strong { font-family: var(--font-head); font-style: italic; font-weight: 800; font-size: 2.1rem; color: #fff; }
@@ -281,6 +284,8 @@ h1, h2, h3 { font-family: var(--font-head); line-height: 1.1; letter-spacing: -0
   .cards, .features { grid-template-columns: repeat(2, 1fr); }
   .about, .contact { grid-template-columns: 1fr; gap: 40px; }
   .about-highlight { order: -1; }
+  .hero-top { flex-direction: column; align-items: flex-start; gap: 28px; }
+  .hero-cta { flex-basis: auto; max-width: 440px; width: 100%; }
 }
 @media (max-width: 720px) {
   .nav {
