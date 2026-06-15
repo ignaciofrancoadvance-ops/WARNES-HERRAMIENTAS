@@ -240,6 +240,7 @@ h1, h2, h3 { font-family: var(--font-head); line-height: 1.1; letter-spacing: -0
 .site-footer { background: var(--ink-900); color: #b9bec7; padding-top: 56px; }
 .footer-inner { display: flex; flex-wrap: wrap; gap: 40px; justify-content: space-between; padding-bottom: 36px; border-bottom: 1px solid #2a2d33; }
 .footer-brand { max-width: 360px; }
+.footer-logo { display: inline-flex; align-items: center; gap: 12px; }
 .footer-brand .brand-name { color: #fff; font-family: var(--font-head); font-weight: 700; letter-spacing: .04em; }
 .footer-brand .brand-sub { color: var(--red); font-size: .7rem; letter-spacing: .3em; }
 .footer-brand p { margin-top: 12px; font-size: .95rem; color: #8a909a; }
