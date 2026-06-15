@@ -175,7 +175,7 @@ h1, h2, h3 { font-family: var(--font-head); line-height: 1.1; letter-spacing: -0
   transition: transform .2s, box-shadow .2s;
 }
 .brand-chip:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(18,19,22,.1); }
-.brand-chip img { height: 58px; width: auto; max-width: 150px; object-fit: contain; }
+.brand-chip img { height: 72px; width: auto; max-width: 160px; object-fit: contain; }
 @media (prefers-reduced-motion: reduce) { .marquee-track { animation: none; } }
 
 /* ---------- Secciones ---------- */
