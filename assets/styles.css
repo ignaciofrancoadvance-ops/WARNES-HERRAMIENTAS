@@ -153,29 +153,29 @@ h1, h2, h3 { font-family: var(--font-head); line-height: 1.1; letter-spacing: -0
 .trust-items span { font-family: var(--font-head); font-weight: 600; color: #d6d9de; font-size: 1.05rem; opacity: .85; }
 
 /* ---------- Marcas (carrusel) ---------- */
-.section-brands { padding-bottom: 88px; }
+.section-brands { padding-bottom: 88px; background: var(--gray-100); }
 .marquee {
   overflow: hidden;
-  -webkit-mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
-  mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
 }
 .marquee-track {
-  display: flex; align-items: center; gap: 60px; width: max-content;
-  animation: marquee 30s linear infinite;
+  display: flex; align-items: center; gap: 24px; width: max-content;
+  animation: marquee 34s linear infinite;
 }
 .marquee:hover .marquee-track { animation-play-state: paused; }
 @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 .brand-chip {
   display: inline-flex; align-items: center; justify-content: center;
+  height: 96px; min-width: 190px; padding: 0 30px;
+  background: #fff; border: 1px solid var(--gray-200); border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(18,19,22,.06);
   font-family: var(--font-head); font-style: italic; font-weight: 800;
-  font-size: 1.7rem; color: #9aa0aa; white-space: nowrap;
-  opacity: .75; transition: color .2s, opacity .2s, filter .2s;
+  font-size: 1.5rem; color: #9aa0aa; white-space: nowrap;
+  transition: transform .2s, box-shadow .2s;
 }
-.brand-chip img {
-  height: 60px; width: auto; max-width: 180px; object-fit: contain;
-  border-radius: 10px;
-}
-.brand-chip:hover { color: var(--red); opacity: 1; }
+.brand-chip:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(18,19,22,.1); }
+.brand-chip img { height: 58px; width: auto; max-width: 150px; object-fit: contain; }
 @media (prefers-reduced-motion: reduce) { .marquee-track { animation: none; } }
 
 /* ---------- Secciones ---------- */
