@@ -30,7 +30,7 @@
   --shadow-lg: 0 24px 60px rgba(18, 19, 22, 0.18);
   --maxw: 1140px;
 
-  --font-head: 'Space Grotesk', system-ui, sans-serif;
+  --font-head: 'Saira', system-ui, sans-serif;
   --font-body: 'Inter', system-ui, -apple-system, sans-serif;
 }
 
@@ -46,7 +46,11 @@ body {
 }
 img, svg { display: block; max-width: 100%; }
 a { color: inherit; text-decoration: none; }
-h1, h2, h3 { font-family: var(--font-head); line-height: 1.12; letter-spacing: -0.02em; }
+h1, h2, h3 { font-family: var(--font-head); line-height: 1.1; letter-spacing: -0.01em; }
+/* Estilo deportivo: titulos grandes en italica + bold ancho */
+.hero h1, .section-head h2, .about-text h2, .contact-info h2 {
+  font-style: italic; font-weight: 800; text-transform: uppercase; letter-spacing: 0;
+}
 
 .container { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
 
@@ -90,7 +94,7 @@ h1, h2, h3 { font-family: var(--font-head); line-height: 1.12; letter-spacing: -
 .brand { display: flex; align-items: center; gap: 12px; }
 .brand-mark { display: grid; place-items: center; }
 .brand-text { display: flex; flex-direction: column; line-height: 1; }
-.brand-name { font-family: var(--font-head); font-weight: 700; font-size: 1.15rem; letter-spacing: .04em; color: var(--ink-900); }
+.brand-name { font-family: var(--font-head); font-style: italic; font-weight: 800; font-size: 1.2rem; letter-spacing: .02em; color: var(--ink-900); }
 .brand-sub { font-size: .62rem; font-weight: 600; letter-spacing: .34em; color: var(--red); }
 
 .nav { display: flex; align-items: center; gap: 28px; }
@@ -135,7 +139,7 @@ h1, h2, h3 { font-family: var(--font-head); line-height: 1.12; letter-spacing: -
 .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; margin: 32px 0 44px; }
 .hero-stats { list-style: none; display: flex; flex-wrap: wrap; gap: 40px; }
 .hero-stats li { display: flex; flex-direction: column; }
-.hero-stats strong { font-family: var(--font-head); font-size: 2rem; color: #fff; }
+.hero-stats strong { font-family: var(--font-head); font-style: italic; font-weight: 800; font-size: 2.1rem; color: #fff; }
 .hero-stats span { font-size: .85rem; color: #9aa0aa; }
 .hero-stripe {
   height: 10px;
@@ -194,13 +198,13 @@ h1, h2, h3 { font-family: var(--font-head); line-height: 1.12; letter-spacing: -
   border: 2px solid var(--red);
   box-shadow: 0 0 0 10px rgba(226,43,34,.08);
 }
-.badge-years .big { font-family: var(--font-head); font-weight: 700; font-size: 4.6rem; color: var(--red); line-height: 1; }
+.badge-years .big { font-family: var(--font-head); font-style: italic; font-weight: 900; font-size: 4.6rem; color: var(--red); line-height: 1; }
 .badge-years .small { font-size: .9rem; color: #c2c7cf; letter-spacing: .04em; margin-top: 6px; }
 
 /* ---------- Features ---------- */
 .features { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
 .feature { padding: 28px 24px; border-radius: var(--radius); background: var(--gray-100); border: 1px solid var(--gray-200); }
-.feature-num { font-family: var(--font-head); font-weight: 700; font-size: 1.6rem; color: var(--red); margin-bottom: 12px; }
+.feature-num { font-family: var(--font-head); font-style: italic; font-weight: 800; font-size: 1.7rem; color: var(--red); margin-bottom: 12px; }
 .feature h3 { font-size: 1.12rem; color: var(--ink-900); margin-bottom: 8px; }
 .feature p { color: var(--text-muted); font-size: .95rem; }
 
