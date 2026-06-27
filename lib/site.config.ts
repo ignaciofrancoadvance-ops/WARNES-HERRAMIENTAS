@@ -65,10 +65,19 @@ export const siteConfig = {
   ] satisfies NavLink[],
 
   hero: {
+    badge: "Comercio exterior · Argentina",
     eyebrow: "Advance Group · Comercio Exterior",
     title: "Servicio integral de importación",
+    /** Palabra del título que se resalta con el color de acento (debe existir en `title`) */
+    titleAccent: "integral",
     subtitle:
       "Gestionamos tu importación de punta a punta: origen, logística internacional, aduana y entrega final. Vos te enfocás en tu negocio, nosotros del resto.",
+    /** Bullets de confianza que aparecen sobre los stats */
+    trust: [
+      "Asesoramiento sin cargo",
+      "Gestión 100% integral",
+      "Respuesta en 24 h",
+    ],
     primaryCta: { label: "Coordinar una llamada", href: "#agendar" },
     secondaryCta: { label: "Escribinos por WhatsApp", href: "" }, // se completa con whatsapp.href
     /**

@@ -2,6 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Animación de las rutas decorativas del hero */
+@keyframes dash {
+  to {
+    stroke-dashoffset: -1000;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-\[dash_22s_linear_infinite\] {
+    animation: none;
+  }
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
