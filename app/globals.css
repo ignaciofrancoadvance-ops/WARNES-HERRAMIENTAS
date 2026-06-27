@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem; /* compensa el navbar sticky al anclar */
+  }
+
+  body {
+    @apply bg-white text-brand-ink antialiased;
+    font-feature-settings: "ss01", "cv01";
+  }
+
+  ::selection {
+    @apply bg-brand-navy text-white;
+  }
+}
+
+@layer components {
+  .container-page {
+    @apply container mx-auto px-5 lg:px-8;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold tracking-wide transition focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-brand-steel;
+  }
+
+  .btn-primary {
+    @apply btn bg-brand-navy text-white hover:bg-brand-navyDark shadow-lg shadow-brand-navy/20;
+  }
+
+  .btn-secondary {
+    @apply btn border border-brand-mist bg-white text-brand-navy hover:bg-brand-paper;
+  }
+
+  .btn-ghost-light {
+    @apply btn border border-white/30 bg-white/10 text-white backdrop-blur hover:bg-white/20;
+  }
+
+  .section {
+    @apply py-20 lg:py-28;
+  }
+
+  .section-title {
+    @apply font-display text-3xl font-bold tracking-tight text-brand-navy sm:text-4xl;
+  }
+
+  .eyebrow {
+    @apply text-xs font-semibold uppercase tracking-[0.2em] text-brand-steel;
+  }
+}
