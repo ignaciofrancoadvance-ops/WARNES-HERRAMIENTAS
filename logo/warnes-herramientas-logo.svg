@@ -1,15 +1,16 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 180" width="520" height="180" role="img" aria-label="Warnes Herramientas">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 176" width="560" height="176" role="img" aria-label="Warnes Herramientas">
   <!-- Icono: cuadrado rojo redondeado con "WH" -->
-  <rect x="16" y="30" width="120" height="120" rx="22" fill="#e11b1b"/>
-  <text x="76" y="112"
-        font-family="Arial Black, Arial, sans-serif" font-weight="900" font-style="italic"
-        font-size="72" fill="#ffffff" text-anchor="middle" letter-spacing="-2">WH</text>
+  <rect x="20" y="28" width="120" height="120" rx="26" fill="#e30d17"/>
+  <text x="80" y="88"
+        font-family="'Arial Black','Helvetica Neue',Arial,sans-serif" font-weight="900" font-style="italic"
+        font-size="52" fill="#ffffff" text-anchor="middle"
+        dominant-baseline="central" letter-spacing="-3">WH</text>
 
   <!-- Wordmark -->
-  <text x="164" y="88"
-        font-family="Arial Black, Arial, sans-serif" font-weight="900" font-style="italic"
-        font-size="54" fill="#1a1a1a" letter-spacing="0">WARNES</text>
-  <text x="166" y="128"
-        font-family="Arial, sans-serif" font-weight="700"
-        font-size="30" fill="#e11b1b" letter-spacing="7">HERRAMIENTAS</text>
+  <text x="168" y="82"
+        font-family="'Arial Black','Helvetica Neue',Arial,sans-serif" font-weight="900" font-style="italic"
+        font-size="50" fill="#1a1a1a" letter-spacing="-1">WARNES</text>
+  <text x="170" y="122"
+        font-family="Arial,Helvetica,sans-serif" font-weight="700"
+        font-size="27" fill="#e30d17" letter-spacing="9.5">HERRAMIENTAS</text>
 </svg>
