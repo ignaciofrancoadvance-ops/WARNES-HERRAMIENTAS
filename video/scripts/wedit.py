@@ -55,6 +55,38 @@ def norm(s):
     return re.sub(r"[^a-z0-9ñ ]", "", s).strip()
 
 # --------------------------------------------------------------------------
+# NORMALIZAR — acondiciona videos de celular (HDR 10-bit, 4K, 60fps, audio
+# espacial de Apple) a un mp4 SDR 8-bit parejo. Evita fallos en el resto.
+# --------------------------------------------------------------------------
+def _es_hdr(path):
+    r = run([FF, "-i", path])
+    return bool(re.search(r"bt2020|arib-std-b67|smpte2084", r.stderr))
+
+def normalizar(src, style, out):
+    fps = style["formato"]["fps"]
+    # caja máxima: el lado mayor no supera 1920 (mantiene relación de aspecto)
+    vf = [f"fps={fps}",
+          "scale=w=1920:h=1920:force_original_aspect_ratio=decrease"]
+    if _es_hdr(src):
+        vf += ["zscale=t=linear:npl=100", "tonemap=hable:desat=0",
+               "zscale=t=bt709:m=bt709:p=bt709:r=tv"]
+    vf += ["format=yuv420p", "setsar=1"]
+    cmd = [FF, "-y", "-i", src, "-map", "0:v:0", "-map", "0:a:0?",
+           "-vf", ",".join(vf), "-c:v", "libx264", "-preset", "veryfast",
+           "-crf", "20", "-pix_fmt", "yuv420p", "-c:a", "aac", "-b:a", "160k", out]
+    r = run(cmd)
+    if r.returncode != 0:
+        sys.stderr.write(r.stderr[-1500:]); raise SystemExit("normalizar fallo")
+    hdr = " (HDR->SDR)" if _es_hdr(src) else ""
+    print(f"Normalizado{hdr} -> {out}")
+    return out
+
+def cmd_normalizar(args, cfg=None):
+    style = (cfg or load_cfg()[0])
+    out = args.output or default_out(args.input, "norm")
+    return normalizar(args.input, style, out)
+
+# --------------------------------------------------------------------------
 # TRANSCRIPCION  ->  lista de palabras [(texto, inicio, fin)]
 # --------------------------------------------------------------------------
 def parse_srt(path):
@@ -382,11 +414,8 @@ def cmd_editar(args):
     cur = args.input
     class A:  # mini-args para reusar los comandos
         pass
-    def step(fn, src, **extra):
-        a = A(); a.input = src; a.output = None
-        for k, v in extra.items(): setattr(a, k, v)
-        return fn(a, **({"cfg": cfg} if fn is cmd_broll else {"cfg": style}), src=src) \
-               if fn is not cmd_microcorte else fn(a, cfg=style)
+    # 0) normalizar (HDR/4K/60fps/audio de celular -> mp4 SDR parejo)
+    cur = normalizar(cur, style, default_out(args.input, "norm"))
     # 1) microcorte
     if style["microcorte"]["activado"]:
         a = A(); a.input = cur; a.output = None
@@ -418,13 +447,14 @@ def cmd_editar(args):
 def main():
     p = argparse.ArgumentParser(description="WEDIT — editor de video WARNES")
     sub = p.add_subparsers(dest="cmd", required=True)
-    for name in ["microcorte", "subtitulos", "broll", "vertical", "editar", "transcribir"]:
+    for name in ["normalizar", "microcorte", "subtitulos", "broll", "vertical", "editar", "transcribir"]:
         sp = sub.add_parser(name)
         sp.add_argument("input")
         sp.add_argument("-o", "--output", default=None)
         sp.add_argument("--srt", default=None)
     a = p.parse_args()
-    fns = {"microcorte": lambda: cmd_microcorte(a),
+    fns = {"normalizar": lambda: cmd_normalizar(a),
+           "microcorte": lambda: cmd_microcorte(a),
            "subtitulos": lambda: cmd_subtitulos(a),
            "broll": lambda: cmd_broll(a),
            "vertical": lambda: cmd_vertical(a),
