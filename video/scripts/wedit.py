@@ -299,15 +299,24 @@ def cmd_broll(args, cfg=None, src=None):
             sys.stderr.write(f"[broll] falta {path}, salto '{word}'\n"); continue
         dur = float(meta.get("duracion", bcfg["duracion_default"]))
         modo = meta.get("modo", bcfg["modo"])
-        inputs += ["-loop", "1", "-t", f"{dur:.2f}", "-i", path]
+        es_video = os.path.splitext(path)[1].lower() in (
+            ".mp4", ".mov", ".webm", ".mkv", ".avi", ".m4v")
         n = (idx+1)
+        if es_video:
+            # clip real: se reproduce durante la ventana (audio del b-roll se descarta)
+            inputs += ["-i", path]
+            prep = f"trim=0:{dur:.2f},setpts=PTS-STARTPTS+{s}/TB,"
+        else:
+            # imagen fija: se repite el frame durante la ventana
+            inputs += ["-loop", "1", "-t", f"{dur:.2f}", "-i", path]
+            prep = ""
         if modo == "fullscreen":
-            filt.append(f"[{n}:v]scale={W}:-1,setsar=1[b{idx}];")
+            filt.append(f"[{n}:v]{prep}scale={W}:-1,setsar=1[b{idx}];")
             filt.append(f"[{last}][b{idx}]overlay=(W-w)/2:(H-h)/2:"
                         f"enable='between(t,{s},{s+dur})'[v{idx}];")
         else:
             bw = int(W * bcfg["ancho_pct"]/100)
-            filt.append(f"[{n}:v]scale={bw}:-1[b{idx}];")
+            filt.append(f"[{n}:v]{prep}scale={bw}:-1,setsar=1[b{idx}];")
             filt.append(f"[{last}][b{idx}]overlay=(W-w)/2:H*0.08:"
                         f"enable='between(t,{s},{s+dur})'[v{idx}];")
         last = f"v{idx}"

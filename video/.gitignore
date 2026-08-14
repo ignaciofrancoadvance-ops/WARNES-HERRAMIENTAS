@@ -3,7 +3,11 @@ input/*
 output/*
 assets/broll/*
 assets/music/*
-fonts/*
 # pero mantener la estructura de carpetas
 !.gitkeep
 !**/.gitkeep
+
+# Las tipografías SÍ se versionan (son livianas y necesarias en cada sesión)
+!fonts/
+!fonts/*.ttf
+!fonts/*.otf

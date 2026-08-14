@@ -21,7 +21,7 @@ formato:
 subtitulos:
   activados: true
   estilo: "karaoke"        # karaoke (resalta palabra por palabra) | simple
-  fuente: "Montserrat-Bold"   # nombre del archivo en video/fonts/ SIN extensión
+  fuente: "Halagar ExtBd"     # nombre INTERNO de la fuente (archivo: fonts/Halagar.otf)
   tamano: 84               # tamaño en px (sobre alto 1920)
   color_texto: "FFFFFF"    # blanco
   color_resaltado: "E30D17" # rojo (palabra activa en modo karaoke)

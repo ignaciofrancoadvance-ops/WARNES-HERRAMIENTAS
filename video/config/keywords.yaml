@@ -12,7 +12,7 @@
 
 palabras:
   avion:
-    archivo: "assets/broll/avion.png"
+    archivo: "assets/broll/avion.mp4"   # CLIP de video (reemplazá por el tuyo)
     duracion: 2.0
     modo: "overlay"
 
