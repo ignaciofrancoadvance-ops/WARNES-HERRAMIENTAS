@@ -1,0 +1,9 @@
+# Media de trabajo (no versionar binarios pesados)
+input/*
+output/*
+assets/broll/*
+assets/music/*
+fonts/*
+# pero mantener la estructura de carpetas
+!.gitkeep
+!**/.gitkeep

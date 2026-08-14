@@ -1,0 +1,32 @@
+# ============================================================
+#  Mapa de palabras -> imagen/clip (B-roll automático)
+#  Cuando en el audio se diga una de estas palabras, se inserta
+#  el archivo correspondiente en ese momento del video.
+#
+#  - La clave es la palabra (o frase) a detectar (sin importar
+#    mayúsculas ni acentos).
+#  - "archivo" puede ser una imagen (.png/.jpg) o un clip (.mp4).
+#  - Podés poner varias palabras que apunten al mismo archivo.
+#  - Opcionalmente por entrada: duracion, modo (overlay|fullscreen).
+# ============================================================
+
+palabras:
+  avion:
+    archivo: "assets/broll/avion.png"
+    duracion: 2.0
+    modo: "overlay"
+
+  taladro:
+    archivo: "assets/broll/taladro.png"
+    duracion: 2.5
+
+  oferta:
+    archivo: "assets/broll/oferta.png"
+    modo: "fullscreen"
+
+  # Ejemplos para copiar:
+  # amoladora:
+  #   archivo: "assets/broll/amoladora.jpg"
+  # envio gratis:
+  #   archivo: "assets/broll/envio.png"
+  #   modo: "fullscreen"

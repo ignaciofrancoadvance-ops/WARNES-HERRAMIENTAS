@@ -1,0 +1,65 @@
+# ============================================================
+#  WARNES HERRAMIENTAS — Estilo de marca para edición de video
+#  Editá estos valores para cambiar el look de TODOS tus videos.
+# ============================================================
+
+marca:
+  nombre: "WARNES HERRAMIENTAS"
+  color_principal: "E30D17"   # rojo (hex sin #)
+  color_secundario: "1A1A1A"  # negro
+  color_acento: "FFFFFF"      # blanco
+
+# ---- Formato de salida ----
+formato:
+  aspecto: "9:16"       # 9:16 vertical (reels/tiktok) | 16:9 | 1:1
+  ancho: 1080
+  alto: 1920
+  fps: 30
+
+# ---- Subtítulos / tipografía ----
+# La fuente debe ser un .ttf/.otf dentro de video/fonts/
+subtitulos:
+  activados: true
+  estilo: "karaoke"        # karaoke (resalta palabra por palabra) | simple
+  fuente: "Montserrat-Bold"   # nombre del archivo en video/fonts/ SIN extensión
+  tamano: 84               # tamaño en px (sobre alto 1920)
+  color_texto: "FFFFFF"    # blanco
+  color_resaltado: "E30D17" # rojo (palabra activa en modo karaoke)
+  color_borde: "000000"    # negro
+  grosor_borde: 6
+  sombra: 3
+  mayusculas: true         # convierte los subtítulos a MAYÚSCULAS
+  posicion_vertical: 78    # % desde arriba (78 = zona baja, típico de reels)
+  max_palabras_linea: 4    # cuántas palabras se muestran juntas
+
+# ---- Microcortes (jump cuts) ----
+microcorte:
+  activado: true
+  umbral_silencio_db: -30   # más negativo = detecta silencios más suaves
+  duracion_min_silencio: 0.35  # segundos de silencio para cortar
+  margen: 0.06              # deja este colchón (seg) alrededor de cada palabra
+  acelerar_hablado: 1.0     # 1.0 = normal, 1.15 = 15% más rápido
+
+# ---- Logo / marca de agua ----
+logo:
+  activado: true
+  archivo: "../logo/warnes-herramientas-logo.png"
+  posicion: "arriba-derecha"  # arriba-izquierda | arriba-derecha | abajo-izquierda | abajo-derecha
+  ancho_pct: 22              # % del ancho del video
+  opacidad: 0.9
+  margen_pct: 4
+
+# ---- Música de fondo ----
+musica:
+  activada: false
+  archivo: ""               # ej: assets/music/fondo.mp3
+  volumen: 0.12             # 0.0 a 1.0 (bajo, para no tapar la voz)
+
+# ---- B-roll automático (palabra -> imagen/clip) ----
+broll:
+  activado: true
+  duracion_default: 2.0     # segundos que dura cada inserto
+  modo: "overlay"           # overlay (encima, esquina) | fullscreen (pantalla completa)
+  ancho_pct: 45             # si es overlay, % del ancho
+  posicion: "arriba-centro"
+  transicion: 0.25          # fundido entrada/salida (seg)
