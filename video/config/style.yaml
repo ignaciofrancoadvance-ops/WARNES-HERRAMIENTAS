@@ -41,9 +41,10 @@ microcorte:
   acelerar_hablado: 1.0     # 1.0 = normal, 1.15 = 15% más rápido
 
 # ---- Logo / marca de agua ----
+# Poné acá el logo de Advance y activalo cuando lo tengas.
 logo:
-  activado: true
-  archivo: "../logo/warnes-herramientas-logo.png"
+  activado: false
+  archivo: "assets/logo-advance.png"
   posicion: "arriba-derecha"  # arriba-izquierda | arriba-derecha | abajo-izquierda | abajo-derecha
   ancho_pct: 22              # % del ancho del video
   opacidad: 0.9
