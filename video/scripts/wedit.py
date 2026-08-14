@@ -114,6 +114,26 @@ def parse_srt(path):
             words.append((w, start + i*step, start + (i+1)*step))
     return words
 
+def load_correcciones():
+    p = os.path.join(CONFIG, "correcciones.yaml")
+    if not os.path.exists(p):
+        return {}
+    data = (yaml.safe_load(open(p, encoding="utf-8")) or {}).get("palabras", {}) or {}
+    return {norm(k): v for k, v in data.items()}
+
+def aplicar_correcciones(words):
+    corr = load_correcciones()
+    if not corr:
+        return words
+    out = []
+    for w, s, e in words:
+        # separa signos de puntuacion para no romper el match
+        m = re.match(r"^(\W*)(.*?)(\W*)$", w, re.S)
+        pre, core, post = m.groups()
+        fix = corr.get(norm(core))
+        out.append(((pre + fix + post) if fix else w, s, e))
+    return out
+
 def transcribe(path):
     """Devuelve palabras con timestamps. Usa faster-whisper si hay modelo;
     si no, intenta un .srt hermano; si no hay, devuelve []."""
@@ -128,12 +148,12 @@ def transcribe(path):
             for w in (seg.words or []):
                 words.append((w.word.strip(), w.start, w.end))
         if words:
-            return words
+            return aplicar_correcciones(words)
     except Exception as e:
         sys.stderr.write(f"[transcribir] modelo no disponible ({e.__class__.__name__}); "
                          f"busco {os.path.basename(srt)}\n")
     if os.path.exists(srt):
-        return parse_srt(srt)
+        return aplicar_correcciones(parse_srt(srt))
     return []
 
 def cmd_transcribir(args):

@@ -1,0 +1,16 @@
+# ============================================================
+#  Correcciones de transcripción — vocabulario de Advance
+#  El modelo a veces escucha mal los nombres propios de la marca.
+#  Acá mapeás  "lo que escucha (mal)"  ->  "lo correcto".
+#  No importan mayúsculas ni acentos en la clave.
+# ============================================================
+
+palabras:
+  meteorologia: "metodología"
+  vih: "B&H"
+  adornstechno: "Adorama"
+  adorama: "Adorama"
+  advance: "Advance"
+  r6: "R6"
+  # agregá los que veas que se repiten mal, por ejemplo:
+  # mercadolibre: "Mercado Libre"
