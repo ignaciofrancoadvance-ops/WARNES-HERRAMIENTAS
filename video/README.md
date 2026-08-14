@@ -70,10 +70,19 @@ El microcorte NO necesita transcripción (usa detección de silencios).
 Los **subtítulos** y el **b-roll automático** sí necesitan saber qué palabra
 se dice en cada momento. Hay tres formas:
 
-1. **Modelo local (ideal):** `faster-whisper` ya está instalado, pero este
-   entorno bloquea la descarga del modelo (`huggingface.co`). Si tu
-   organización habilita ese dominio en la config del entorno, la
-   transcripción pasa a ser 100% automática con `transcribir`.
+1. **Modelo local (ideal, elegido):** `faster-whisper` ya está instalado, pero
+   este entorno bloquea la descarga del modelo. Para activarlo, un admin debe
+   **habilitar estos dominios** en la política de red del entorno:
+   - `huggingface.co`
+   - `cdn-lfs.huggingface.co` (y/o `*.hf.co`)
+
+   Una vez habilitados, la transcripción es 100% automática:
+   ```bash
+   python3 scripts/wedit.py transcribir input/mi_video.mp4   # descarga el modelo la 1ª vez
+   python3 scripts/wedit.py editar      input/mi_video.mp4   # ya usa la transcripción sola
+   ```
+   El modelo por defecto es `small` (buen balance en español). Se puede cambiar
+   con la variable de entorno `WHISPER_MODEL` (`tiny`, `base`, `small`, `medium`).
 2. **Archivo `.srt`:** exportá los subtítulos desde tu app de grabación y
    dejalos al lado del video con el mismo nombre.
 3. **Manual:** escribí vos el `.srt` (formato estándar).
