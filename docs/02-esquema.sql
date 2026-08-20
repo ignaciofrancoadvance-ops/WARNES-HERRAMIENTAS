@@ -36,14 +36,15 @@ create table if not exists ml_accounts (
   status             text not null default 'disconnected'
                      check (status in ('disconnected','connected','needs_reconnect')),
   last_error         text,
+  refresh_lock_until timestamptz,   -- lease para que dos procesos no quemen el refresh
   connected_at       timestamptz,
   updated_at         timestamptz not null default now()
 );
 
 comment on table ml_accounts is
   'Credenciales OAuth de ML. El refresh_token es de un solo uso: para renovarlo
-   el servidor toma un bloqueo de fila (SELECT ... FOR UPDATE) y así dos procesos
-   simultáneos no lo queman.';
+   el servidor toma un lease sobre refresh_lock_until (update condicional) y así
+   dos procesos simultáneos no lo queman.';
 
 
 -- ------------------------------------------------------------
@@ -92,6 +93,7 @@ create table if not exists ml_items (
   date_created          timestamptz,
 
   raw                   jsonb,         -- respuesta cruda, por si mañana falta un campo
+  stale                 boolean not null default false,  -- no vino en la ultima corrida completa
   synced_at             timestamptz not null default now()
 );
 

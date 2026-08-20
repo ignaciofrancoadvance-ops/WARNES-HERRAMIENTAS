@@ -8,7 +8,7 @@ Todas las llamadas a la API de ML salen del servidor, nunca del navegador.
 
 ---
 
-## Estado: esperando confirmación. No hay código escrito todavía.
+## Estado: listo para implementar. Especificación en `docs/03-brief-implementacion.md`.
 
 ---
 
@@ -70,8 +70,8 @@ con un campo de rol, sin usar por ahora, para poder sumar gente después sin mig
   el servidor lo canjea por `access_token` + `refresh_token` y los guarda.
 - **Renovación con candado.** Como el refresh es de un solo uso, si dos procesos
   intentan renovar a la vez, uno de los dos quema el token y la conexión se cae.
-  Se resuelve con un bloqueo de fila en Postgres (`SELECT ... FOR UPDATE`): el
-  segundo proceso espera y reutiliza el token que consiguió el primero.
+  Se resuelve con un *lease* en la columna `refresh_lock_until`: el primero que lo
+  toma renueva, el segundo espera y reutiliza el token que consiguió el primero.
 - Si el refresh se pierde igual, la conexión pasa a estado `needs_reconnect` y el
   panel muestra un cartel rojo pidiendo reconectar. Nunca falla en silencio.
 
